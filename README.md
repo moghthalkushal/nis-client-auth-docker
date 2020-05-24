@@ -11,8 +11,12 @@ docker run --env-file .\NIS.env  -d  --privileged=TRUE -P  -u 0 ldap-nis-client
 
 Sample .env file :
 
-DOMAIN_NAME=YP.INDIA
+DOMAIN_NAME=YP.INDIA 
+
 NAME_SERVER_IP=0.0.0.0
+
 NAME_SERVER_FIRST=fire
+
 NAME_SERVER=fire.domain.net
+
 MOUNT_PATH=fire.domain.net:/usr/people 
