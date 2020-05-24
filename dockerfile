@@ -55,14 +55,10 @@ RUN echo "${DOMAIN_NAME}" > /etc/defaultdomain
 
 # YP CONCFIGURATION
 RUN echo "domain ${DOMAIN_NAME} server ${NAME_SERVER}" >> /etc/yp.conf
-
 RUN domainname $DOMAIN_NAME
 
-# NIS SERVICE RESTART AND MOUNT
-RUN service rpcbind restart
-RUN service nis start
-mount $MOUNT_PATH /home 
+# RESTART NIS SERVICES WHEN CONTAINER STARTS
+COPY entry-point-nis-config.sh /usr/local/bin/
+ENTRYPOINT ["entry-point-nis-config.sh"]
 
 EXPOSE 22
-
-CMD [/usr/sbin/sshd, -D]
