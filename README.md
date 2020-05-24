@@ -1,4 +1,6 @@
 # nis-client-auth-docker
+Assumption : NIS Server is running 
+
 Docker Container with NIS Authentication - Client Configuration only
 
 docker build -t ldap-nis-client .
